@@ -1,10 +1,11 @@
+import Header from "./components/Header";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 const App = () => {
   return(
 		<>
 			<GlobalStyles />
-			<h1>Hello world</h1>
+			<Header />
 		</>
   )
 }
