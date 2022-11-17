@@ -11,15 +11,21 @@ interface OrdersBoardsProps {
 
 const OrdersBoard = ({icon, title, orders}: OrdersBoardsProps) => {
 	const [isModalVisible, setIsModalVisible] =  useState(false)
+	//generic types indica que o useState pode receber outros tipos alem do null
+	const [selectedOrder, setSelectedOrder] = useState<null | Order>(null)
 
-	const handleOpenOrderDetails = () => {
+	const handleOpenOrderDetails = (itemOrder: Order) => {
 		setIsModalVisible(true);
+		setSelectedOrder(itemOrder)
 	}
 
 	return (
 		<Board>
 
-			<OrderModal openModal={isModalVisible} />
+			<OrderModal
+				openModal={isModalVisible}
+				itemOrder={selectedOrder}
+			/>
 
 			<header>
 				<span>{icon}</span>
@@ -30,7 +36,7 @@ const OrdersBoard = ({icon, title, orders}: OrdersBoardsProps) => {
 				<OrdersContainer>
 				{
 					orders.map(itemOrders => (
-						<button onClick={handleOpenOrderDetails} type="button" key={itemOrders._id}>
+						<button onClick={() => handleOpenOrderDetails(itemOrders)} type="button" key={itemOrders._id}>
 							<strong>{itemOrders.table}</strong>
 							<span>{itemOrders.products.length} Itens</span>
 						</button>

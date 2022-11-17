@@ -1,12 +1,15 @@
-import { ModalBody, Overlay } from "./styles"
+import { ModalBody, OrderDetails, Overlay } from "./styles"
 import closeIcon from '../../assets/images/close-icon.svg'
+import { Order } from "../../types/Order";
 
 interface orderModalProps {
 	openModal: boolean;
+	itemOrder: Order | null
 }
 
-const OrderModal = ({ openModal }: orderModalProps) => {
-	if (!openModal) {
+const OrderModal = ({ openModal, itemOrder }: orderModalProps) => {
+	if (!openModal || !itemOrder) {
+		// se nao tiver nada, nao retorna nada
 		return null
 	}
 
@@ -14,7 +17,7 @@ const OrderModal = ({ openModal }: orderModalProps) => {
 		<Overlay>
 			<ModalBody>
 				<header>
-					<strong>Mesa 2</strong>
+					<strong>{itemOrder.table}</strong>
 					<button type="button">
 						<img src={closeIcon} alt="botao de fechar" />
 					</button>
@@ -22,10 +25,21 @@ const OrderModal = ({ openModal }: orderModalProps) => {
 				<div className="status-container">
 					<small>Status do pedido</small>
 					<div>
-						<span>⏱️</span>
-						<strong>Fila de espera</strong>
+						<span>
+							{itemOrder.status === 'WAITING' && '⏱️'}
+							{itemOrder.status === 'IN_PRODUCTION' && '⌛'}
+							{itemOrder.status === 'DONE' && '✔️'}
+						</span>
+						<strong>
+							{itemOrder.status === 'WAITING' && 'Fila de espera'}
+							{itemOrder.status === 'IN_PRODUCTION' && 'Em producao'}
+							{itemOrder.status === 'DONE' && 'Pronto!'}
+						</strong>
 					</div>
 				</div>
+				<OrderDetails>
+					<strong>Itens</strong>
+				</OrderDetails>
 			</ModalBody>
 		</Overlay>
 	)
