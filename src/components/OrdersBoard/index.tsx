@@ -19,12 +19,18 @@ const OrdersBoard = ({icon, title, orders}: OrdersBoardsProps) => {
 		setSelectedOrder(itemOrder)
 	}
 
+	const handleCloseModal = () => {
+		setIsModalVisible(false);
+		setSelectedOrder(null)
+	}
+
 	return (
 		<Board>
 
 			<OrderModal
 				openModal={isModalVisible}
 				itemOrder={selectedOrder}
+				closeModal={handleCloseModal}
 			/>
 
 			<header>

@@ -117,3 +117,30 @@ export const OrderDetails = styled.div`
 		}
 	}
 `
+
+export const Actions = styled.footer`
+	display: flex;
+	flex-direction: column;
+
+	.primary {
+		background-color: #333;
+		color: #fff;
+		border-radius: 48px;
+		border: none;
+		padding: 12px 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		margin-top: 32px;
+	}
+
+	.secondary {
+		padding: 12px 24px;
+		color: #d73035;
+		font-weight: bold;
+		border: none;
+		background-color: transparent;
+		margin-top: 12px;
+	}
+`

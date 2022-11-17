@@ -1,4 +1,4 @@
-import { ModalBody, OrderDetails, Overlay } from "./styles"
+import { Actions, ModalBody, OrderDetails, Overlay } from "./styles"
 import closeIcon from '../../assets/images/close-icon.svg'
 import { Order } from "../../types/Order";
 import { formatCurrency } from "../../utils/formatCurrency";
@@ -6,9 +6,10 @@ import { formatCurrency } from "../../utils/formatCurrency";
 interface orderModalProps {
 	openModal: boolean;
 	itemOrder: Order | null
+	closeModal: () => void
 }
 
-const OrderModal = ({ openModal, itemOrder }: orderModalProps) => {
+const OrderModal = ({ openModal, itemOrder,closeModal }: orderModalProps) => {
 	if (!openModal || !itemOrder) {
 		// se nao tiver nada, nao retorna nada
 		return null
@@ -30,7 +31,7 @@ const OrderModal = ({ openModal, itemOrder }: orderModalProps) => {
 			<ModalBody>
 				<header>
 					<strong>{itemOrder.table}</strong>
-					<button type="button">
+					<button onClick={closeModal} type="button">
 						<img src={closeIcon} alt="botao de fechar" />
 					</button>
 				</header>
@@ -75,6 +76,13 @@ const OrderModal = ({ openModal, itemOrder }: orderModalProps) => {
 						<strong>{formatCurrency(total)}</strong>
 					</div>
 				</OrderDetails>
+				<Actions>
+					<button type="button" className="primary">
+						<span>👨‍🍳</span>
+						<span>Iniciar producao</span>
+					</button>
+					<button type="button" className="secondary">Cancelar Pedido</button>
+				</Actions>
 			</ModalBody>
 		</Overlay>
 	)
