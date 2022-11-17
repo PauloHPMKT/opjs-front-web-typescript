@@ -19,6 +19,13 @@ const OrderModal = ({ openModal }: orderModalProps) => {
 						<img src={closeIcon} alt="botao de fechar" />
 					</button>
 				</header>
+				<div className="status-container">
+					<small>Status do pedido</small>
+					<div>
+						<span>⏱️</span>
+						<strong>Fila de espera</strong>
+					</div>
+				</div>
 			</ModalBody>
 		</Overlay>
 	)

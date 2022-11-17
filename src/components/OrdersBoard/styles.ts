@@ -4,7 +4,6 @@ import styled from "styled-components"
 export const Board = styled.div`
 	padding: 16px;
 	border: 1px solid rgba(204, 204, 204, 0.4);
-	background-color: #cccccc;
 	border-radius: 16px;
 	display: flex;
 	flex: 1;
@@ -12,7 +11,7 @@ export const Board = styled.div`
 	align-items: center;
 	flex-direction: column;
 
-	header {
+	> header { // estilos so se aplicam ao filho direto do Board
 		padding: 8px;
 		font-size: 14px;
 		display: flex;
