@@ -2,7 +2,7 @@ import { Board, OrdersContainer } from "./styles";
 
 interface OrdersBoardsProps {
 	icon: string;
-	title: string
+	title: string;
 }
 
 const OrdersBoard = ({icon, title}: OrdersBoardsProps) => {
