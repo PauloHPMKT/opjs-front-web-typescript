@@ -4,11 +4,13 @@ import styled from "styled-components"
 export const Board = styled.div`
 	padding: 16px;
 	border: 1px solid rgba(204, 204, 204, 0.4);
+	background-color: #cccccc;
 	border-radius: 16px;
 	display: flex;
 	flex: 1;
-	flex-direction: column;
+	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 
 	header {
 		padding: 8px;
