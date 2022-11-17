@@ -4,7 +4,18 @@ import { Container } from "./styles"
 const Orders = () => {
 	return (
 		<Container>
-			<OrdersBoard />
+			<OrdersBoard
+				icon="⏱️"
+				title="Fila de espera"
+			/>
+			<OrdersBoard
+				icon="⌛"
+				title="Em preparacao"
+			/>
+			<OrdersBoard
+				icon="✔️"
+				title="Pronto!"
+			/>
 		</Container>
 	)
 }

@@ -1,12 +1,16 @@
 import { Board, OrdersContainer } from "./styles";
 
+interface OrdersBoardsProps {
+	icon: string;
+	title: string
+}
 
-const OrdersBoard = () => {
+const OrdersBoard = ({icon, title}: OrdersBoardsProps) => {
 	return (
 		<Board>
 			<header>
-				<span>⏱️</span>
-				<strong>Fila de espera</strong>
+				<span>{icon}</span>
+				<strong>{title}</strong>
 				<span>(1)</span>
 			</header>
 			<OrdersContainer>
