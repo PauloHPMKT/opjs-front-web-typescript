@@ -5,11 +5,20 @@ import { formatCurrency } from "../../utils/formatCurrency";
 
 interface orderModalProps {
 	openModal: boolean;
-	itemOrder: Order | null
-	closeModal: () => void
+	itemOrder: Order | null;
+	closeModal: () => void;
+	onRemoveOrder: () => Promise<void>;
+	isLoading: boolean;
+	onChangeOrderStatus: () => void;
 }
 
-const OrderModal = ({ openModal, itemOrder,closeModal }: orderModalProps) => {
+const OrderModal = ({
+	openModal,
+	itemOrder,closeModal,
+	onRemoveOrder,
+	isLoading,
+	onChangeOrderStatus
+}: orderModalProps) => {
 	if (!openModal || !itemOrder) {
 		// se nao tiver nada, nao retorna nada
 		return null
@@ -77,11 +86,30 @@ const OrderModal = ({ openModal, itemOrder,closeModal }: orderModalProps) => {
 					</div>
 				</OrderDetails>
 				<Actions>
-					<button type="button" className="primary">
-						<span>👨‍🍳</span>
-						<span>Iniciar producao</span>
+					{itemOrder.status !== 'DONE' && (
+						<button
+							type="button"
+							className="primary"
+							disabled={isLoading}
+							onClick={onChangeOrderStatus}
+						>
+							<span>
+								{itemOrder.status === 'WAITING' && '👨‍🍳'}
+								{itemOrder.status === 'IN_PRODUCTION' && '✔️'}
+							</span>
+							<span>
+							{itemOrder.status === 'WAITING' && 'Iniciar Producao'}
+							{itemOrder.status === 'IN_PRODUCTION' && 'Concluir pedido'}
+							</span>
+						</button>
+					)}
+					<button
+						type="button"
+						className="secondary"
+						onClick={onRemoveOrder}
+					>
+						Cancelar Pedido
 					</button>
-					<button type="button" className="secondary">Cancelar Pedido</button>
 				</Actions>
 			</ModalBody>
 		</Overlay>
