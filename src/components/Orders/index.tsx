@@ -5,17 +5,19 @@ import { api } from "../../utils/api";
 import OrdersBoard from "../OrdersBoard";
 import { Container } from "./styles"
 
-
+// testar conectividade com da mesa com websocket
 const Orders = () => {
 	const [orders, setOrders] = useState<Order[]>([])
 
 	useEffect(() => {
 		const socket = socketIo('http://localhost:3008', {
-			transports: ['websockets']
+			transports: ['websocket']
 		})
 
-		socket.on('order-new', () => {
-			console.log('Novo pedido cadastrado')
+		socket.on('order_new', (order) => {
+			setOrders(prevState => prevState.concat(order));
+
+			console.log(order);
 		})
 	}, [])
 
