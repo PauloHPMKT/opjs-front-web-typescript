@@ -13,12 +13,6 @@ const useStyles = createUseStyles({
 		margin: '0 40px',
 		cursor: 'pointer'
 	},
-	setMenu: {
-		position: 'absolute',
-		top: '198px',
-		boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.166)',
-		Transition: 'left .3s ease-in-out',
-	},
 	setMenuOpen: {
 		left: 0,
 		Transition: 'left .3s ease-in-out',
@@ -40,6 +34,9 @@ const Header = () => {
 	return(
 		<Container>
 			<GoThreeBars onClick={handleToggleMenu} className={classes.barsConfig} />
+			{
+				hiddenMenu && <SlideMenu />
+			}
 			<Content>
 				<div className="page-details">
 					<h1>Gerenciamento de Pedidos</h1>
@@ -49,9 +46,6 @@ const Header = () => {
 					<img src={logo} alt="Logo WaiterApp" />
 				</div>
 			</Content>
-			<div className={classes.setMenu}>
-				<SlideMenu />
-			</div>
 		</Container>
 	)
 }

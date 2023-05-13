@@ -1,6 +1,7 @@
 import { Container } from "./styles";
 
-const SlideMenu = () => {
+const SlideMenu = (): JSX.Element => {
+
 	return (
 		<Container>
 			<li>Link 1</li>

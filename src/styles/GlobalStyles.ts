@@ -11,6 +11,7 @@ import GeneralSansSemiboldWoff from '../assets/fonts/GeneralSans-Semibold.woff';
 import GeneralSansSemiboldTtf from '../assets/fonts/GeneralSans-Semibold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
+
 @font-face {
     font-family: 'GeneralSans';
     font-weight: 400;
