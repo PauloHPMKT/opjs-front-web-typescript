@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  food-square-app:
+    build: .
+    container_name: food-sqaure
+    volumes:
+      - .:/usr/home/app/front-food-square
+    working_dir: /usr/home/app/front-food-square
+    ports:
+      - 3009:3009
+    tty: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
