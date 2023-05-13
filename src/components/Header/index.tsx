@@ -3,7 +3,7 @@ import { Container, Content } from './styles'
 import { GoThreeBars } from 'react-icons/go'
 import { createUseStyles } from 'react-jss'
 
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logo-foodsquare-removebg-preview.png'
 import SlideMenu from '../SlideMenu'
 
 const useStyles = createUseStyles({
@@ -42,10 +42,12 @@ const Header = () => {
 			<GoThreeBars onClick={handleToggleMenu} className={classes.barsConfig} />
 			<Content>
 				<div className="page-details">
-					<h1>Pedidos</h1>
+					<h1>Gerenciamento de Pedidos</h1>
 					<h2>Acompanhe os pedidos dos clientes</h2>
 				</div>
-				<img src={logo} alt="Logo WaiterApp" />
+				<div className='logo-container'>
+					<img src={logo} alt="Logo WaiterApp" />
+				</div>
 			</Content>
 			<div className={classes.setMenu}>
 				<SlideMenu />

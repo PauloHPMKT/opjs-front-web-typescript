@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.header`
-	background-color: #D73035;
+	background-color: red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -14,6 +14,7 @@ export const Content = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding-right: 4%;
 
 	.page-details {
 		color: #fff;
@@ -27,6 +28,19 @@ export const Content = styled.div`
 			font-weight: 400;
 			font-size: 16px;
 			opacity: 0.9;
+		}
+	}
+
+	.logo-container {
+		width: 200px;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			width: 100%;
+			filter: drop-shadow(0 0 2px #a3019080);
 		}
 	}
 `
