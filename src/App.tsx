@@ -1,21 +1,17 @@
-import Header from "./components/Header";
-import Orders from "./components/Orders";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
 
+import { Outlet } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
-const App = () => {
+export const App = () => {
   return(
 		<>
 			<GlobalStyles />
-			<Header />
-			<Orders />
 			<ToastContainer
 				position="bottom-center"
 			/>
+			<Outlet />
 		</>
   )
 }
-
-export default App
