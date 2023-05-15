@@ -7,6 +7,8 @@ import { App } from './App'
 import { LoginView } from './pages/LoginView';
 import { Dashboard } from './pages/Dashboard';
 import { ErrorPage } from './pages/ErrorPage';
+import { AuthProvider } from './contexts/Auth/AuthProvider';
+import { RequireAuth } from './contexts/Auth/RequireAuth';
 
 const router = createBrowserRouter([
 	{
@@ -16,7 +18,11 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				element: <Dashboard />,
+				element: (
+					<RequireAuth>
+						<Dashboard />
+					</RequireAuth>
+				),
 			},
 			{
 				path: "login",
@@ -28,6 +34,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<AuthProvider>
+			<RouterProvider router={router} />
+		</AuthProvider>
 	</React.StrictMode>
 )
