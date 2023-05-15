@@ -3,7 +3,7 @@ import { ButtonAction } from "./styles";
 
 interface buttonProps {
 	children: string;
-	handleClickEvent: (e: MouseEvent) => void;
+	handleClickEvent: () => void;
 }
 
 export const Button = ({ children, handleClickEvent }: buttonProps) => {
