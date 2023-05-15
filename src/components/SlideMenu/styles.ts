@@ -6,7 +6,7 @@ export const Container = styled.ul`
 	box-shadow: rgba(0, 0, 0, 0.166);
 	position: absolute;
 	width: 500px;
-	top: 198px;
+	top: 150px;
 	left: 0;
 	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.166);
 	transition: left .3s ease-in-out;
